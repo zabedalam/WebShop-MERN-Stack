@@ -48,7 +48,7 @@ function CreateProduct(){
       const data = new FormData();
       data.append('file', product.media);//required by cloudinary
       data.append('upload_preset', 'mernstack');//required by cloudinary
-      data.append('cloud_name', 'sjosephrw');//required by cloudinary
+      data.append('cloud_name', 'zaifanam123');//required by cloudinary
       const res = await axios.post(process.env.CLOUDINARY_URL, data);
       const mediaUrl = res.data.url;
       return mediaUrl;
