@@ -1,74 +1,9 @@
-// import Product from "../../models/Product";
-// import Cart from "../../models/Cart";
-// import connectDb from "../../utils/connectDb";
-
-// connectDb();
-
-// export default async (req, res) => {
-//   switch (req.method) {
-//     case "GET":
-//       await handleGetRequest(req, res);
-//       break;
-//     case "POST":
-//       await handlePostRequest(req, res);
-//       break;
-//     case "DELETE":
-//       await handleDeleteRequest(req, res);
-//       break;
-//     default:
-//       res.status(405).send(`Method ${req.method} not allowed`);
-//       break;
-//   }
-// };
-
-// async function handleGetRequest(req, res) {
-//   const { _id } = req.query;
-//   const product = await Product.findOne({ _id });
-//   res.status(200).json(product);
-// }
-
-// async function handlePostRequest(req, res) {
-//   const { name, price, description, mediaUrl } = req.body;
-//   try {
-//     if (!name || !price || !description || !mediaUrl) {
-//       return res.status(422).send("Product missing one or more fields");
-//     }
-//     const product = await new Product({
-//       name,
-//       price,
-//       description,
-//       mediaUrl
-//     }).save();
-//     res.status(201).json(product);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Server error in creating product");
-//   }
-// }
-
-// async function handleDeleteRequest(req, res) {
-//   const { _id } = req.query;
-//   try {
-//     // 1) Delete product by id
-//     await Product.findOneAndDelete({ _id });
-//     // 2) Remove product from all carts, referenced as 'product'
-//     await Cart.updateMany(
-//       { "products.product": _id },
-//       { $pull: { products: { product: _id } } }
-//     );
-//     res.status(204).json({});
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Error deleting product");
-//   }
-// }
-
 import connectDb from '../../utils/connectDb';
 import Product from '../../models/Product';
 import Cart from '../../models/Cart';
 
 
-connectDb();//************ */just execute it like this to connect to db
+connectDb();//just execute it like this to connect to db
 
 export default async (req, res) => {
     console.log(req.query._id);
@@ -124,7 +59,7 @@ async function handleDeleteRequest(req, res){
         console.log('-------------');
         
         //const product = await Product.findOne({ _id: _id });// - { _id: _id } also valid
-        await Product.findOneAndDelete({ _id });//*** */does n't actually return a promie to get a promise - Product.find.exec()
+        await Product.findOneAndDelete({ _id });//does n't actually return a promie to get a promise - Product.find.exec()
     
         //remove product from all shopping carts if it has been added to it 
         //CASCADE  DELETE UPON DOCUMNET REMOVAL 
