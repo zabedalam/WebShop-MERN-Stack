@@ -29,7 +29,7 @@ class Navbar extends React.Component {
         <nav>
             <div className="logo">
                 <a href="/">
-                    {/* <i className="fas fa-cookie-bite"></i> */}
+                    
                     <i className="fas fa-home"></i>
                 </a>
             </div>
