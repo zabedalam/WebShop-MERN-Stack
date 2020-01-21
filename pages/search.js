@@ -29,7 +29,7 @@ class Search extends Component {
         // const payload = { search: search }
         // axios.get(url).then((res) => console.log(res)).catch((err) => {console.log(err)});
         const res = await axios.get(url);
-        console.log(res);
+        // console.log(res);
         this.setState({searchResult: res.data.resultArray})
         // this.setState({searchResult: res.data.resultArray});
         // console.log(res.data.resultArray);

@@ -6,7 +6,7 @@ import Cart from '../../models/Cart';
 connectDb();//just execute it like this to connect to db
 
 export default async (req, res) => {
-    console.log(req.query._id);
+    // console.log(req.query._id);
     switch (req.method){
         case "GET": 
         await handleGetRequest(req, res);
@@ -18,7 +18,7 @@ export default async (req, res) => {
         await handlePutRequest(req, res);
         break;        
         case "DELETE":
-        console.log(req.query._id);
+        // console.log(req.query._id);
         await handleDeleteRequest(req, res);
         break;
         default:
@@ -40,7 +40,7 @@ async function handleGetRequest(req, res){
             product
         });        
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(500).send(`Server error! ${error}`);
 
     }   
@@ -55,8 +55,8 @@ async function handleDeleteRequest(req, res){
     try {
         // console.log(req.query.url);
         const { _id } = req.query;
-        console.log(_id);
-        console.log('-------------');
+        // console.log(_id);
+        // console.log('-------------');
         
         //const product = await Product.findOne({ _id: _id });// - { _id: _id } also valid
         await Product.findOneAndDelete({ _id });//does n't actually return a promie to get a promise - Product.find.exec()
@@ -70,7 +70,7 @@ async function handleDeleteRequest(req, res){
 
         res.status(204).json({});        
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(500).send(`Server error! ${error}`);
 
     }
@@ -90,7 +90,7 @@ async function handlePostRequest(req, res){
         res.status(201).json(product);
 
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(500).send(`Server error! ${error}`);
     }
 
@@ -101,8 +101,8 @@ async function handlePutRequest(req, res){
     try {
         const {_id, name, price, description, mediaUrl} = req.body;
 
-        console.log('++++++++++++++++++++++++++??')
-        console.log(req.body);
+        // console.log('++++++++++++++++++++++++++??')
+        // console.log(req.body);
 
         if (!name || !price || !description){
             return res.status(422).send(`Name price and descriptiion are mandatory.`)
@@ -117,13 +117,13 @@ async function handlePutRequest(req, res){
         } else {//if not changing the image 
             product = await Product.findOneAndUpdate({_id: _id}, {$set: {name, price, description}}, {new: true});//*** */does n't actually return a promie to get a promise - Product.find.exec()    
         }
-        console.log('________________________')
-        console.log(product);
+        // console.log('________________________')
+        // console.log(product);
 
         res.status(201).json(product);
 
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(500).send(`Server error! ${error}`);
     }
 

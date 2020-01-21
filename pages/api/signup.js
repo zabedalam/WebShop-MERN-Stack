@@ -36,7 +36,7 @@ export default async (req, res) => {
 
         //3. Sign Up the user
         const newUser = await new User({ name, email, password: hashedPassword }).save();//*** */does n't actually return a promie to get a promise - Product.find.exec()    
-        console.log(newUser);
+        // console.log(newUser);
         //4. Create JWT token for the new user
         //this is synchronous so no need to await
         const token = jwt.sign({userId: newUser._id, role: newUser.role}, process.env.JWT_SECRET, {expiresIn: '7d'});//expiry 7 days
@@ -48,7 +48,7 @@ export default async (req, res) => {
         res.status(201).json(token);
 
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(500).send(`Server error! ${error}`);
     }
 

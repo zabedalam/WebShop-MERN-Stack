@@ -3,7 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import calculateCartTotal from '../../utils/calculateCartTotal';
 
 function CartSummary(prods) {
-  console.log(prods.handleCheckout)
+  // console.log(prods.handleCheckout)
   // console.log(handleCheckout)
 
   const { products } = prods;

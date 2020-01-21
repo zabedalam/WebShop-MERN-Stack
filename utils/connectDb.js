@@ -5,7 +5,7 @@ async function connectDb(){
 
     if (connection.isConnected){
         //USE existing DB Connection
-        console.log('Using existing connection');
+        // console.log('Using existing connection');
         return;//if we are already connected no need to connect again
     }
 
@@ -19,11 +19,11 @@ async function connectDb(){
             // useUnifiedTopology: true
         });
 
-        console.log('DB Connected!');
+        // console.log('DB Connected!');
         //this is the way of connecting a serverless app to mongo
         connection.isConnected = db.connections[0].readyState;        
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 
 }

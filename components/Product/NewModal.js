@@ -16,7 +16,7 @@ const NewModal = ({ handleClose, showModal, children, _id }) => {
       router.push('/shop');//redirect to shop after deleting 
     
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
 
   }

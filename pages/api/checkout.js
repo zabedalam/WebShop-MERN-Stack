@@ -10,8 +10,8 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async (req, res) => {
     const { paymentData } = req.body;
-    console.log('__________________________')
-    console.log(paymentData);
+    // console.log('__________________________')
+    // console.log(paymentData);
 
     if (!("authorization" in req.headers)){//if the authorization object does not exist in the req.headers
         return res.status(401).send(`No authorization token.`);
@@ -37,8 +37,8 @@ export default async (req, res) => {
                 limit: 1
             })
 
-            console.log('-----------------------------')
-            console.log(prevCustomer);
+            // console.log('-----------------------------')
+            // console.log(prevCustomer);
 
             //5. if they are not existing customers create them based on their email.
             const existingCustomer = prevCustomer.data.length > 0;
@@ -67,8 +67,8 @@ export default async (req, res) => {
                 customer = customer.id;
             }
 
-            console.log('+++++++++++++++++++++++++++++')
-            console.log(customer);
+            // console.log('+++++++++++++++++++++++++++++')
+            // console.log(customer);
             //return;
             // console.log(prevCustomer.data[0].id);
             // console.log('???????????????????????????');
@@ -99,8 +99,8 @@ export default async (req, res) => {
                 }
             );
 
-             console.log('++++++++++++++++++')
-             console.log(emptyCart);   
+            //  console.log('++++++++++++++++++')
+            //  console.log(emptyCart);   
 
             //9. send back status 200 response.
             // res.status(200).send(`Checkout Successful!`);

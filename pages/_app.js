@@ -35,7 +35,7 @@ class MyApp extends App {
 
   syncLogOut = (e) => {
     if(e.key === 'logout'){//    window.localStorage.setItem('logout', Date.now()); - utils/auth.js
-      console.log('Logged out from storage.');
+      // console.log('Logged out from storage.');
       Router.push('/login')
     }
   }

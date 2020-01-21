@@ -34,7 +34,7 @@ function Users({ user, users }) {
 //https://stackoverflow.com/questions/54867560/getinitialprops-in-next-js-does-not-get-data-from-server
 //Note: getInitialProps can not be used in children components. Only in pages.
 Users.getInitialProps = async (ctx) => {
-  console.log(ctx);
+  // console.log(ctx);
   const { token } = parseCookies(ctx);
   if (!token) {
     return { users: [] };

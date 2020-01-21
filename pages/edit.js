@@ -58,7 +58,7 @@ function EditProduct({prod}){
       return mediaUrl;
 
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
