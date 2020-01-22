@@ -11,7 +11,7 @@ function CreateProduct(){
   const INITIAL_PRODUCT = {
     name: "",
     price: "",
-    media: '',
+    media: "",
     description: ""
   }
 

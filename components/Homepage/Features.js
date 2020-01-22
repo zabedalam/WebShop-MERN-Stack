@@ -4,7 +4,7 @@ function Features(){
         <section className="section-top-features">
 
                 <div className="container">
-                    <h2 className="title">FEATURES.</h2>
+                    <h2 className="title">FEATURES</h2>
                 </div>
 
             <div className="container flex">
