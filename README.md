@@ -1,1 +1,1 @@
-## Starting Repo for MERN Stack Web Development for final project purposes
+## Starting Repo for Market place in MERN stack
